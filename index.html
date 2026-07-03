@@ -9,37 +9,15 @@
         .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-top: 30px; max-width: 1000px; margin-left: auto; margin-right: auto; }
         .card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-decoration: none; color: #333; transition: transform 0.2s, box-shadow 0.2s; display: block; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 8px 12px rgba(0,0,0,0.15); }
-        
-        /* 圖片容器與防出錯樣式 */
-        .img-container {
-            width: 100%;
-            height: 120px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            overflow: hidden;
-            background-color: #f1f5f9;
-        }
+        .img-container { width: 100%; height: 120px; border-radius: 8px; margin-bottom: 10px; overflow: hidden; background-color: #f1f5f9; }
         .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        
-        /* 自動生成的精美圖示樣式 */
-        .fallback-avatar {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 46px;
-            user-select: none;
-        }
-        
+        .fallback-avatar { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 46px; user-select: none; }
         h1 { color: #2c3e50; }
     </style>
     <script>
-        // 當圖片載入失敗時，自動替換為主題漸層色與表情符號的精美圖示
         function handleImgError(img, emoji, gradientType) {
             const container = img.parentElement;
-            let gradient = 'linear-gradient(135deg, #f1f5f9, #cbd5e1)'; // 預設灰色
-            
+            let gradient = 'linear-gradient(135deg, #f1f5f9, #cbd5e1)';
             if (gradientType === 'blue') gradient = 'linear-gradient(135deg, #e0f2fe, #bae6fd)';
             else if (gradientType === 'purple') gradient = 'linear-gradient(135deg, #f3e8ff, #e9d5ff)';
             else if (gradientType === 'pink') gradient = 'linear-gradient(135deg, #fce7f3, #fbcfe8)';
@@ -48,189 +26,119 @@
             else if (gradientType === 'orange') gradient = 'linear-gradient(135deg, #ffedd5, #fed7aa)';
             else if (gradientType === 'red') gradient = 'linear-gradient(135deg, #fee2e2, #fecaca)';
             else if (gradientType === 'teal') gradient = 'linear-gradient(135deg, #ccfbf1, #99f6e4)';
-
-            container.innerHTML = `
-                <div class="fallback-avatar" style="background: ${gradient}">
-                    <span>${emoji}</span>
-                </div>
-            `;
+            container.innerHTML = `<div class="fallback-avatar" style="background: ${gradient}"><span>${emoji}</span></div>`;
         }
     </script>
 </head>
 <body>
-
     <h1>Shelley老師製作的AI中文學習工具</h1>
     <p>點擊下方圖片即可開始練習：</p>
-
     <div class="container">
         <!-- 1. 派遣前總複習 -->
         <a href="https://shelleytaiwan.github.io/chinese-review/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/PP4t2P1r/1.png" alt="派遣前總複習" onerror="handleImgError(this, '🎓', 'blue')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/PP4t2P1r/1.png" alt="派遣前總複習" onerror="handleImgError(this, '🎓', 'blue')"></div>
             <h3>派遣前總複習</h3>
         </a>
-        
         <!-- 2. 叫人練習 -->
         <a href="https://shelleytaiwan.github.io/greeting/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/p9KLHkgV/2.png" alt="叫人練習" onerror="handleImgError(this, '🗣️', 'purple')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/p9KLHkgV/2.png" alt="叫人練習" onerror="handleImgError(this, '🗣️', 'purple')"></div>
             <h3>叫人練習</h3>
         </a>
-        
         <!-- 3. 量詞比賽 -->
         <a href="https://wordwall.net/tc/resource/1495817/%E9%87%8F%E8%AF%8D" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/q6vJ2rg6/3.png" alt="量詞比賽" onerror="handleImgError(this, '🏆', 'yellow')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/q6vJ2rg6/3.png" alt="量詞比賽" onerror="handleImgError(this, '🏆', 'yellow')"></div>
             <h3>量詞比賽</h3>
         </a>
-        
         <!-- 4. 量詞總複習 -->
         <a href="https://shelleytaiwan.github.io/measure-words-/" class="card">
-            <div class="img-container">
-                <img src="https://i.ibb.co/j960n7Pm/measure.jpg" alt="量詞總複習" onerror="handleImgError(this, '📝', 'teal')">
-            </div>
+            <div class="img-container"><img src="https://i.ibb.co/j960n7Pm/measure.jpg" alt="量詞總複習" onerror="handleImgError(this, '📝', 'teal')"></div>
             <h3>量詞總複習</h3>
         </a>
-        
         <!-- 5. 聲調練習 -->
         <a href="https://shelleytaiwan.github.io/tone-trainer/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/Vd5s6z3G/4.png" alt="聲調練習" onerror="handleImgError(this, '🎵', 'pink')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/Vd5s6z3G/4.png" alt="聲調練習" onerror="handleImgError(this, '🎵', 'pink')"></div>
             <h3>聲調練習</h3>
         </a>
-        
         <!-- 6. 數字聽力 -->
         <a href="https://shelleytaiwan.github.io/numbers/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/sQwyjLKC/5.png" alt="數字聽力" onerror="handleImgError(this, '🔢', 'green')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/sQwyjLKC/5.png" alt="數字聽力" onerror="handleImgError(this, '🔢', 'green')"></div>
             <h3>數字聽力</h3>
         </a>
-        
         <!-- 7. 圖文轉KTV念讀 -->
         <a href="https://shelleytaiwan.github.io/text-to-ktv/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/vD2MCp4w/6.png" alt="KTV念讀" onerror="handleImgError(this, '🎤', 'red')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/vD2MCp4w/6.png" alt="KTV念讀" onerror="handleImgError(this, '🎤', 'red')"></div>
             <h3>圖文轉KTV念讀</h3>
         </a>
-
-        <!-- 8. 形容詞森林 -->
+        <!-- 8. 形容詞森林 (已更新圖片連結) -->
         <a href="https://shelleytaiwan.github.io/adj-forest/" class="card">
-            <div class="img-container">
-                <img src="https://meee.com.tw/643gdoO" alt="形容詞森林" onerror="handleImgError(this, '🌳', 'green')">
-            </div>
+            <div class="img-container"><img src="https://postimg.cc/K4tKGpcB" alt="形容詞森林" onerror="handleImgError(this, '🌳', 'green')"></div>
             <h3>形容詞森林</h3>
         </a>
-        
         <!-- 9. 點珍珠奶茶 -->
         <a href="https://shelleytaiwan.github.io/milktea/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/bZkhDr3j/7.png" alt="點珍珠奶茶" onerror="handleImgError(this, '🧋', 'orange')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/bZkhDr3j/7.png" alt="點珍珠奶茶" onerror="handleImgError(this, '🧋', 'orange')"></div>
             <h3>點珍珠奶茶</h3>
         </a>
-        
         <!-- 10. 教室物品移動 -->
         <a href="https://shelleytaiwan.github.io/classroom-items/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/r0FXPJTg/8.png" alt="教室物品" onerror="handleImgError(this, '🏫', 'blue')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/r0FXPJTg/8.png" alt="教室物品" onerror="handleImgError(this, '🏫', 'blue')"></div>
             <h3>教室物品移動</h3>
         </a>
-        
         <!-- 11. 指令和禮貌請求 -->
         <a href="https://shelleytaiwan.github.io/command/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/7J5vxZfV/9.png" alt="禮貌請求" onerror="handleImgError(this, '💬', 'purple')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/7J5vxZfV/9.png" alt="禮貌請求" onerror="handleImgError(this, '💬', 'purple')"></div>
             <h3>指令和禮貌請求</h3>
         </a>
-        
         <!-- 12. 重組句子(繁) -->
         <a href="https://shelleytaiwan.github.io/rewrite-sentence/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/bsL66hr1/10.png" alt="句子重組(繁)" onerror="handleImgError(this, '🧩', 'teal')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/bsL66hr1/10.png" alt="句子重組(繁)" onerror="handleImgError(this, '🧩', 'teal')"></div>
             <h3>重組句子(繁)</h3>
         </a>
-        
         <!-- 13. 重組句子(簡) -->
         <a href="https://shelleytaiwan.github.io/rewrite-sentence-ch/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/bsL66hr1/11.png" alt="句子重組(簡)" onerror="handleImgError(this, '🧩', 'green')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/bsL66hr1/11.png" alt="句子重組(簡)" onerror="handleImgError(this, '🧩', 'green')"></div>
             <h3>重組句子(簡)</h3>
         </a>
-        
         <!-- 14. 緊急情況詞語 -->
         <a href="https://shelleytaiwan.github.io/emergency/" class="card">
-            <div class="img-container">
-                <img src="https://i.ibb.co/4nsbL3zw/emergency.jpg" alt="緊急情況詞語" onerror="handleImgError(this, '🚨', 'red')">
-            </div>
+            <div class="img-container"><img src="https://i.ibb.co/4nsbL3zw/emergency.jpg" alt="緊急情況詞語" onerror="handleImgError(this, '🚨', 'red')"></div>
             <h3>緊急情況詞語</h3>
         </a>
-        
         <!-- 15. 拉霸機(繁) -->
         <a href="https://shelleytaiwan.github.io/slot-machine/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/dZkfbNxG/12.png" alt="拉霸機(繁)" onerror="handleImgError(this, '🎰', 'orange')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/dZkfbNxG/12.png" alt="拉霸機(繁)" onerror="handleImgError(this, '🎰', 'orange')"></div>
             <h3>拉霸機(繁)</h3>
         </a>
-        
         <!-- 16. 拉霸機(簡) -->
         <a href="https://shelleytaiwan.github.io/slot-machine-ch/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/dZkfbNxG/13.png" alt="拉霸機(簡)" onerror="handleImgError(this, '🎰', 'yellow')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/dZkfbNxG/13.png" alt="拉霸機(簡)" onerror="handleImgError(this, '🎰', 'yellow')"></div>
             <h3>拉霸機(簡)</h3>
         </a>
-        
         <!-- 17. 打字練習(繁) -->
         <a href="https://shelleytaiwan.github.io/typing-tw/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/vDcCxDZX/14.png" alt="打字練習(繁)" onerror="handleImgError(this, '⌨️', 'blue')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/vDcCxDZX/14.png" alt="打字練習(繁)" onerror="handleImgError(this, '⌨️', 'blue')"></div>
             <h3>打字練習(繁)</h3>
         </a>
-        
         <!-- 18. 打字練習(簡) -->
         <a href="https://shelleytaiwan.github.io/typing-ch/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/vDcCxDZX/15.png" alt="打字練習(簡)" onerror="handleImgError(this, '⌨️', 'purple')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/vDcCxDZX/15.png" alt="打字練習(簡)" onerror="handleImgError(this, '⌨️', 'purple')"></div>
             <h3>打字練習(簡)</h3>
         </a>
-        
         <!-- 19. 对话篇章配音 -->
         <a href="https://shelleytaiwan.github.io/text-to-speech/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/56G5QQCR/image.jpg" alt="對話篇章配音" onerror="handleImgError(this, '🎙️', 'pink')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/56G5QQCR/image.jpg" alt="對話篇章配音" onerror="handleImgError(this, '🎙️', 'pink')"></div>
             <h3>對話篇章配音</h3>
         </a>
-        
         <!-- 20. 圖文辨識中翻日 -->
         <a href="https://shelleytaiwan.github.io/image-to-jp-text/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/JDLgZd9q/image.jpg" alt="圖文辨識中翻日" onerror="handleImgError(this, '🔍', 'teal')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/JDLgZd9q/image.jpg" alt="圖文辨識中翻日" onerror="handleImgError(this, '🔍', 'teal')"></div>
             <h3>圖文辨識中翻日</h3>
         </a>
-        
         <!-- 21. 其他推薦 -->
         <a href="https://shelleytaiwan.github.io/other-tools/" class="card">
-            <div class="img-container">
-                <img src="https://i.postimg.cc/v4dKKzL2/16.png" alt="其他推薦" onerror="handleImgError(this, '🌟', 'yellow')">
-            </div>
+            <div class="img-container"><img src="https://i.postimg.cc/v4dKKzL2/16.png" alt="其他推薦" onerror="handleImgError(this, '🌟', 'yellow')"></div>
             <h3>其他工具推薦</h3>
         </a>
     </div>
-
 </body>
 </html>
